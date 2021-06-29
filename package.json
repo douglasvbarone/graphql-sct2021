@@ -1,0 +1,26 @@
+{
+  "name": "graphql-sct2021",
+  "version": "1.0.0",
+  "description": "Exemplo para o mini-curso de GraphQL na Semana de Ciência e Tecnologia do IFMS",
+  "main": "scr/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douglasvbarone/graphql-sct2021.git"
+  },
+  "author": "Douglas Barone",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/douglasvbarone/graphql-sct2021/issues"
+  },
+  "homepage": "https://github.com/douglasvbarone/graphql-sct2021#readme",
+  "dependencies": {
+    "apollo-server": "^2.25.2",
+    "graphql": "^15.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.8"
+  }
+}
