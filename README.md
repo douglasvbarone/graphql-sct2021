@@ -5,6 +5,7 @@ Repositório de exemplo para o mini-curso de GraphQL na Semana de Ciência e Tec
 ## Para rodar
 
 Assumindo que você já tenha o NodeJS instalado:
+
 Navegue até a pasta do projeto e entre com os seguintes comandos:
 
 ```shell
