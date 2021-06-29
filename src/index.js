@@ -68,7 +68,7 @@ const pets = [
   },
   {
     id: 9,
-    name: 'Goldy',
+    name: 'Goldie',
     owners: [6],
     age: 1,
     breed: 'Beta',
