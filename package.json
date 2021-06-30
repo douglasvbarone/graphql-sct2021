@@ -4,7 +4,7 @@
   "description": "Exemplo para o mini-curso de GraphQL na Semana de Ciência e Tecnologia do IFMS",
   "main": "scr/index.js",
   "scripts": {
-    "start": "nodemon --exec npm run babel-node -- src/index.js",
+    "dev": "nodemon --exec npm run babel-node -- src/index.js",
     "babel-node": "babel-node --presets='@babel/preset-env'"
   },
   "repository": {
