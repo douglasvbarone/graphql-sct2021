@@ -16,6 +16,13 @@ export const resolvers = {
     owners: () => owners
   },
 
+  Mutation: {
+    addPet(parent, args, context, info) {
+      pets.push(args)
+      return pets[pets.length - 1]
+    }
+  },
+
   Pet: {
     owners(parent, args, context, info) {
       return owners.filter(({ id }) => parent.owners.includes(id))

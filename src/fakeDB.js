@@ -1,3 +1,4 @@
+// Animais de estimação
 export const pets = [
   {
     id: 1,
@@ -74,6 +75,7 @@ export const pets = [
   }
 ]
 
+// Categorias dos animais
 export const categories = [
   {
     id: 1,
@@ -89,6 +91,7 @@ export const categories = [
   }
 ]
 
+// Donos dos animais
 export const owners = [
   {
     id: 1,

@@ -29,4 +29,16 @@ export const typeDefs = gql`
     categories: [Category!]
     owners: [Owner!]
   }
+
+  # Tipo especial para alterar dados
+  type Mutation {
+    addPet(
+      id: ID!
+      name: String!
+      owners: [Int!]!
+      age: Int
+      breed: String
+      category: Int!
+    ): Pet!
+  }
 `
