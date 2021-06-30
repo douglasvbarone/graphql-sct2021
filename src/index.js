@@ -154,7 +154,7 @@ const typeDefs = gql`
 
   # Tipo especial para consulta
   type Query {
-    pets: [Pet!]
+    pets(search: String): [Pet!]
     categories: [Category!]
     owners: [Owner!]
   }
@@ -162,7 +162,16 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    pets: () => pets,
+    pets(parent, { search }, context, info) {
+      const sanitizedSearch = search?.toLowerCase().trim()
+
+      return sanitizedSearch
+        ? pets.filter(({ name }) =>
+            name.toLowerCase().trim().includes(sanitizedSearch)
+          )
+        : pets
+    },
+
     categories: () => categories,
     owners: () => owners
   },
@@ -193,5 +202,5 @@ const resolvers = {
 const server = new ApolloServer({ typeDefs, resolvers })
 
 server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`)
+  console.log(`🚀  Servidor pronto na URL: ${url}`)
 })
