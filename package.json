@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/douglasvbarone/graphql-sct2021#readme",
   "dependencies": {
-    "apollo-server": "^3.0.2",
+    "apollo-server-express": "^3.0.2",
+    "express": "^4.17.1",
     "graphql": "^15.5.1"
   },
   "devDependencies": {
