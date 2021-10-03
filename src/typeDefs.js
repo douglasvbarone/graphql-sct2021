@@ -1,6 +1,9 @@
 import { gql } from 'apollo-server-express'
 
 export const typeDefs = gql`
+  """
+  Um animal de estimação
+  """
   type Pet {
     id: ID!
     name: String!
@@ -23,22 +26,47 @@ export const typeDefs = gql`
     pets: [Pet!]
   }
 
-  # Tipo especial para consulta
+  """
+  Tipo especial para consulta
+  """
   type Query {
-    pets(search: String): [Pet!]
+    """
+    Todos os pets, ou o resultado da pesquisa
+    """
+    pets(
+      """
+      Um termo para busca de pets
+      """
+      search: String
+    ): [Pet!]
+
+    """
+    As categorias dos pets. Cachorro, gato, etc.
+    """
     categories: [Category!]
+
+    """
+    Os donos dos pets
+    """
     owners: [Owner!]
   }
 
-  # Tipo especial para alterar dados
+  """
+  Tipo especial para alterar dados
+  """
   type Mutation {
-    addPet(
-      id: ID!
-      name: String!
-      owners: [Int!]!
-      age: Int
-      breed: String
-      category: Int!
-    ): Pet!
+    """
+    Adicionar um Pet
+    """
+    addPet(data: addPetInput!): Pet!
+  }
+
+  input addPetInput {
+    id: ID!
+    name: String!
+    owners: [Int!]!
+    age: Int
+    breed: String
+    category: Int!
   }
 `

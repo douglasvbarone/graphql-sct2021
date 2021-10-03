@@ -17,8 +17,9 @@ export const resolvers = {
   },
 
   Mutation: {
-    addPet(parent, args, context, info) {
-      pets.push(args)
+    addPet(parent, { data }, context, info) {
+      pets.push(data)
+
       return pets[pets.length - 1]
     }
   },
