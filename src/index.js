@@ -4,8 +4,14 @@ import express from 'express'
 import { typeDefs } from './typeDefs'
 import { resolvers } from './resolvers'
 
+import * as db from './fakeDB'
+
 async function startApolloServer(typeDefs, resolvers) {
-  const server = new ApolloServer({ typeDefs, resolvers })
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: () => ({ ...db })
+  })
   await server.start()
   const app = express()
   server.applyMiddleware({ app })

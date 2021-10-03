@@ -1,8 +1,6 @@
-import { pets, owners, categories } from './fakeDB'
-
 export const resolvers = {
   Query: {
-    pets(parent, { search }, context, info) {
+    pets(parent, { search }, { pets }, info) {
       const sanitizedSearch = search?.toLowerCase().trim()
 
       return sanitizedSearch
@@ -12,12 +10,12 @@ export const resolvers = {
         : pets
     },
 
-    categories: () => categories,
-    owners: () => owners
+    categories: (parent, { search }, { categories }, info) => categories,
+    owners: (parent, { search }, { owners }, info) => owners
   },
 
   Mutation: {
-    addPet(parent, { data }, context, info) {
+    addPet(parent, { data }, { pets }, info) {
       pets.push(data)
 
       return pets[pets.length - 1]
@@ -25,23 +23,23 @@ export const resolvers = {
   },
 
   Pet: {
-    owners(parent, args, context, info) {
+    owners(parent, args, { owners }, info) {
       return owners.filter(({ id }) => parent.owners.includes(id))
     },
 
-    category(parent, args, context, info) {
+    category(parent, args, { categories }, info) {
       return categories.find(({ id }) => id === parent.category)
     }
   },
 
   Category: {
-    pets(parent, args, context, info) {
+    pets(parent, args, { pets }, info) {
       return pets.filter(({ category }) => category === parent.id)
     }
   },
 
   Owner: {
-    pets(parent, args, context, info) {
+    pets(parent, args, { pets }, info) {
       return pets.filter(({ owners }) => owners.includes(parent.id))
     }
   }
