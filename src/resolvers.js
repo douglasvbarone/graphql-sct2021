@@ -1,7 +1,9 @@
+const sanitizeInput = search => search?.toLowerCase().trim()
+
 export const resolvers = {
   Query: {
     pets(parent, { search }, { pets }, info) {
-      const sanitizedSearch = search?.toLowerCase().trim()
+      const sanitizedSearch = sanitizeInput(search)
 
       return sanitizedSearch
         ? pets.filter(({ name }) =>
