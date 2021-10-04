@@ -5,7 +5,8 @@
   "main": "scr/index.js",
   "scripts": {
     "dev": "nodemon --exec npm run babel-node -- src/index.js",
-    "babel-node": "babel-node --presets='@babel/preset-env'"
+    "babel-node": "babel-node --presets='@babel/preset-env'",
+    "client": "npm run serve --prefix ./client"
   },
   "repository": {
     "type": "git",
